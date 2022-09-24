@@ -1,6 +1,7 @@
 package com.exchanges.connectors.core.ws.connection;
 
 import com.exchanges.connectors.core.ws.handler.WsHandlerExchange;
+import com.exchanges.dto.CurrencyPair;
 import com.exchanges.dto.EventConnector;
 import com.exchanges.dto.Subscribe;
 import com.exchanges.dto.Topic;
@@ -26,7 +27,6 @@ import java.util.concurrent.TimeUnit;
 public abstract class WsConnectionExchangeImpl implements WsConnectionExchange {
     final WsHandlerExchange wsHandlerExchange;
 
-    @Autowired
     public WsConnectionExchangeImpl(WsHandlerExchange wsHandlerExchange) {
         this.wsHandlerExchange = wsHandlerExchange;
     }
@@ -97,7 +97,7 @@ public abstract class WsConnectionExchangeImpl implements WsConnectionExchange {
         }
     }
 
-    private void addSubscribe(String currencyPair, Topic topic) {
+    private void addSubscribe(CurrencyPair currencyPair, Topic topic) {
         wsHandlerExchange.getSubscribes()
                 .add(
                         new Subscribe(currencyPair, topic)
@@ -123,7 +123,7 @@ public abstract class WsConnectionExchangeImpl implements WsConnectionExchange {
         }
     }
 
-    private void removeSubscribe(String currencyPair, Topic topic) {
+    private void removeSubscribe(CurrencyPair currencyPair, Topic topic) {
         wsHandlerExchange.getSubscribes().remove(
                 new Subscribe(currencyPair, topic)
         );

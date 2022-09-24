@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Subscribe {
-    String currencyPair;
+    CurrencyPair currencyPair;
     Topic topic;
 }

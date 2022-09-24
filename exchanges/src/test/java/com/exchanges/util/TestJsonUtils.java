@@ -54,7 +54,7 @@ public class TestJsonUtils {
     public void fromJson_messageEventJsonToObject_test() throws IOException {
         MessageEvent messageEvent = new MessageEvent(
                 "binance",
-                "BTC-USDT",
+                new CurrencyPair("BTC-USDT"),
                 TypeEvent.SUBSCRIBE,
                 Topic.ORDER_BOOK);
         JsonNode jsonNode = objectMapper.readTree(new ClassPathResource("com/exchanges/util/messageEvent.json").getInputStream());

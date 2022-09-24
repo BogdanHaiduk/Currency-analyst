@@ -1,7 +1,9 @@
 package com.exchanges.connectors.connector.ftx.ws.service;
 
+import com.exchanges.connectors.connector.ftx.FtxAdapter;
 import com.exchanges.connectors.connector.ftx.ws.dto.FtxChannel;
 import com.exchanges.connectors.connector.ftx.ws.dto.FtxEventMessage;
+import com.exchanges.dto.CurrencyPair;
 import com.exchanges.dto.EventConnector;
 import com.exchanges.dto.Topic;
 import com.exchanges.connectors.core.ws.service.WsPublicDataService;
@@ -26,9 +28,9 @@ public class FtxWsPublicDataService implements WsPublicDataService {
     }
 
     @Override
-    public void subscribeOrderBook(String currencyPair) {
+    public void subscribeOrderBook(CurrencyPair currencyPair) {
         FtxEventMessage ftxEventMessage =
-                new FtxEventMessage(SUBSCRIBE_OP, FtxChannel.ORDER_BOOK.getName(), currencyPair);
+                new FtxEventMessage(SUBSCRIBE_OP, FtxChannel.ORDER_BOOK.getName(), FtxAdapter.toCurrencyPairFtx(currencyPair));
 
         wsConnectionExchange.subscribe(
                 new EventConnector(
@@ -39,9 +41,9 @@ public class FtxWsPublicDataService implements WsPublicDataService {
     }
 
     @Override
-    public void unsubscribeOrderBook(String currencyPair) {
+    public void unsubscribeOrderBook(CurrencyPair currencyPair) {
         FtxEventMessage ftxEventMessage =
-                new FtxEventMessage(UNSUBSCRIBE_OP, FtxChannel.ORDER_BOOK.getName(), currencyPair);
+                new FtxEventMessage(UNSUBSCRIBE_OP, FtxChannel.ORDER_BOOK.getName(), FtxAdapter.toCurrencyPairFtx(currencyPair));
 
         wsConnectionExchange.unsubscribe(
                 new EventConnector(

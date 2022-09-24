@@ -1,7 +1,9 @@
 package com.exchanges.connectors.core.ws.service;
 
-public interface WsPublicDataService {
-    void subscribeOrderBook(String currencyPair);
+import com.exchanges.dto.CurrencyPair;
 
-    void unsubscribeOrderBook(String currencyPair);
+public interface WsPublicDataService {
+    void subscribeOrderBook(CurrencyPair currencyPair);
+
+    void unsubscribeOrderBook(CurrencyPair currencyPair);
 }

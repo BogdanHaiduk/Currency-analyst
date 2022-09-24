@@ -14,7 +14,11 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MessageEvent {
     String exchange;
-    String currencyPair;
+    CurrencyPair currencyPair;
     TypeEvent typeEvent;
     Topic topic;
+
+    public void setCurrencyPair(String currencyPair) {
+        this.currencyPair = new CurrencyPair(currencyPair);
+    }
 }
