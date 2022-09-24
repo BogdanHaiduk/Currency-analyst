@@ -1,0 +1,6 @@
+{
+  "exchange": "binance",
+  "currencyPair": "BTC-USDT",
+  "typeEvent": "SUBSCRIBE",
+  "topic": "ORDER_BOOK"
+}
