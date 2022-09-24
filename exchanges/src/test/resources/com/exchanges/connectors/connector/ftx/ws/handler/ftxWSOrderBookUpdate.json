@@ -1,0 +1,30 @@
+{
+  "channel": "orderbook",
+  "market": "BTC/USDT",
+  "type": "update",
+  "data": {
+    "time": 1663946992.6182628,
+    "checksum": 3914707285,
+    "bids": [
+      [
+        18771.0,
+        0
+      ],
+      [
+        18770.0,
+        5
+      ]
+    ],
+    "asks": [
+      [
+        18772.0,
+        5
+      ],
+      [
+        18773.0,
+        0
+      ]
+    ],
+    "action": "update"
+  }
+}

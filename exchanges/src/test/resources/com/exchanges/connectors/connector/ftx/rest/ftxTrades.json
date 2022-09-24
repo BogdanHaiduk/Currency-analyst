@@ -1,0 +1,165 @@
+{
+  "success": true,
+  "result": [
+    {
+      "id": 5019819063,
+      "price": 18896.0,
+      "size": 0.18,
+      "side": "sell",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:49.837414+00:00"
+    },
+    {
+      "id": 5019818837,
+      "price": 18893.0,
+      "size": 0.0001,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:49.210709+00:00"
+    },
+    {
+      "id": 5019818613,
+      "price": 18889.0,
+      "size": 0.0001,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:48.657674+00:00"
+    },
+    {
+      "id": 5019818344,
+      "price": 18888.0,
+      "size": 0.0527,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:45.972103+00:00"
+    },
+    {
+      "id": 5019818343,
+      "price": 18886.0,
+      "size": 0.0001,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:45.972103+00:00"
+    },
+    {
+      "id": 5019818342,
+      "price": 18886.0,
+      "size": 0.0001,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:45.972103+00:00"
+    },
+    {
+      "id": 5019817600,
+      "price": 18881.0,
+      "size": 0.0001,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:39.582128+00:00"
+    },
+    {
+      "id": 5019816311,
+      "price": 18878.0,
+      "size": 0.2013,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:31.848405+00:00"
+    },
+    {
+      "id": 5019816310,
+      "price": 18878.0,
+      "size": 0.0001,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:31.848405+00:00"
+    },
+    {
+      "id": 5019816309,
+      "price": 18878.0,
+      "size": 0.27,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:31.848405+00:00"
+    },
+    {
+      "id": 5019815834,
+      "price": 18874.0,
+      "size": 0.0001,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:26.212186+00:00"
+    },
+    {
+      "id": 5019815737,
+      "price": 18873.0,
+      "size": 0.0031,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:25.803572+00:00"
+    },
+    {
+      "id": 5019815736,
+      "price": 18873.0,
+      "size": 0.0002,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:25.803572+00:00"
+    },
+    {
+      "id": 5019815140,
+      "price": 18872.0,
+      "size": 0.01,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:19.505175+00:00"
+    },
+    {
+      "id": 5019814636,
+      "price": 18871.0,
+      "size": 0.0002,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:12.697327+00:00"
+    },
+    {
+      "id": 5019814520,
+      "price": 18870.0,
+      "size": 0.0008,
+      "side": "buy",
+      "liquidation": false,
+      "time": "2022-09-23T12:06:10.543575+00:00"
+    },
+    {
+      "id": 5019813437,
+      "price": 18873.0,
+      "size": 0.0001,
+      "side": "sell",
+      "liquidation": false,
+      "time": "2022-09-23T12:05:59.563528+00:00"
+    },
+    {
+      "id": 5019812877,
+      "price": 18876.0,
+      "size": 0.0264,
+      "side": "sell",
+      "liquidation": false,
+      "time": "2022-09-23T12:05:53.206215+00:00"
+    },
+    {
+      "id": 5019812876,
+      "price": 18876.0,
+      "size": 0.0001,
+      "side": "sell",
+      "liquidation": false,
+      "time": "2022-09-23T12:05:53.206215+00:00"
+    },
+    {
+      "id": 5019812083,
+      "price": 18880.0,
+      "size": 0.0001,
+      "side": "sell",
+      "liquidation": false,
+      "time": "2022-09-23T12:05:44.463917+00:00"
+    }
+  ]
+}
