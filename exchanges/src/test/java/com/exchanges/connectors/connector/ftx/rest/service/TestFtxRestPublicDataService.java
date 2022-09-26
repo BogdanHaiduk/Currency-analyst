@@ -26,10 +26,13 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @ExtendWith(MockitoExtension.class)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class TestFtxRestPublicDataService {
-    static final String PATH = "/connectors/connector/ftx/rest/";
+    static String EXCHANGE_NAME = "ftx";
+    static String CURRENCY_PAIR = "BTC-USDT";
+    static String FILE_PATH_REST = "/connectors/connector/ftx/rest/";
+
     @InjectMocks
     FtxRestPublicDataService restPublicDataService;
     @Mock
@@ -37,14 +40,16 @@ public class TestFtxRestPublicDataService {
 
     @Test
     public void getOrderBook_getOrderBookImitationFromFTX_OrderBook() {
+        CurrencyPair currencyPair = new CurrencyPair(CURRENCY_PAIR);
+
         when(ftxRestConnectionExchange.getOrderBook(any()))
-                .thenReturn(TestUtil.fromJson(PATH, "ftxOrderBook.json", FtxOrderBookRest.class));
+                .thenReturn(TestUtil.fromJson(FILE_PATH_REST, "ftxOrderBook.json", FtxOrderBookRest.class));
 
         OrderBook orderBookActual =
-                restPublicDataService.getOrderBook(new CurrencyPair("BTC", "USDT"));
+                restPublicDataService.getOrderBook(currencyPair);
 
-        assertEquals("ftx", orderBookActual.getExchangeName());
-        assertEquals(new CurrencyPair("BTC", "USDT"), orderBookActual.getCurrencyPair());
+        assertEquals(EXCHANGE_NAME, orderBookActual.getExchangeName());
+        assertEquals(currencyPair, orderBookActual.getCurrencyPair());
 
         Map<BigDecimal, BigDecimal> asks = orderBookActual.getAsks();
         Map<BigDecimal, BigDecimal> bids = orderBookActual.getBids();
@@ -58,7 +63,7 @@ public class TestFtxRestPublicDataService {
     @Test
     public void getCurrencyPairs_getImitationCurrencyPairsBySpotMarketFromFTX_ListCurrencyPair() {
         when(ftxRestConnectionExchange.getMarkets())
-                .thenReturn(TestUtil.fromJson(PATH, "ftxMarkets.json", FtxMarket.class));
+                .thenReturn(TestUtil.fromJson(FILE_PATH_REST, "ftxMarkets.json", FtxMarket.class));
 
         List<CurrencyPair> currencyPairsBySpot = restPublicDataService.getCurrencyPairsBySpotMarket();
 
@@ -70,34 +75,40 @@ public class TestFtxRestPublicDataService {
 
     @Test
     public void getTrades_getImitationTradesFromFTXWithoutTimeParams_ListTrade() {
-        when(ftxRestConnectionExchange.getTrades(any(), anyLong(), anyLong()))
-                .thenReturn(TestUtil.fromJson(PATH, "ftxTrades.json", FtxTradeRest.class));
+        CurrencyPair currencyPair = new CurrencyPair(CURRENCY_PAIR);
 
-        List<Trade> trades = restPublicDataService.getTrades(new CurrencyPair("BTC-USDT"));
+        when(ftxRestConnectionExchange.getTrades(any(), anyLong(), anyLong()))
+                .thenReturn(TestUtil.fromJson(FILE_PATH_REST, "ftxTrades.json", FtxTradeRest.class));
+
+        List<Trade> trades = restPublicDataService.getTrades(currencyPair);
 
         assertTrue(trades != null && !trades.isEmpty());
-        assertTrue(trades.stream().allMatch(trade -> trade.getCurrencyPair().equals(new CurrencyPair("BTC-USDT"))));
+        assertTrue(trades.stream().allMatch(trade -> trade.getCurrencyPair().equals(currencyPair)));
     }
 
     @Test
     public void getTrades_getImitationTradesFromFTXWithStartTimeParams_ListTrade() {
-        when(ftxRestConnectionExchange.getTrades(any(), anyLong(), anyLong()))
-                .thenReturn(TestUtil.fromJson(PATH, "ftxTrades.json", FtxTradeRest.class));
+        CurrencyPair currencyPair = new CurrencyPair(CURRENCY_PAIR);
 
-        List<Trade> trades = restPublicDataService.getTrades(new CurrencyPair("BTC-USDT"), 1663934808657L);
+        when(ftxRestConnectionExchange.getTrades(any(), anyLong(), anyLong()))
+                .thenReturn(TestUtil.fromJson(FILE_PATH_REST, "ftxTrades.json", FtxTradeRest.class));
+
+        List<Trade> trades = restPublicDataService.getTrades(currencyPair, 1663934808657L);
 
         assertTrue(trades != null && !trades.isEmpty());
-        assertTrue(trades.stream().allMatch(trade -> trade.getCurrencyPair().equals(new CurrencyPair("BTC-USDT"))));
+        assertTrue(trades.stream().allMatch(trade -> trade.getCurrencyPair().equals(currencyPair)));
     }
 
     @Test
     public void getTrades_getImitationTradesFromFTXWithStartAndEndTimeParams_ListTrade() {
-        when(ftxRestConnectionExchange.getTrades(any(), anyLong(), anyLong()))
-                .thenReturn(TestUtil.fromJson(PATH, "ftxTrades.json", FtxTradeRest.class));
+        CurrencyPair currencyPair = new CurrencyPair(CURRENCY_PAIR);
 
-        List<Trade> trades = restPublicDataService.getTrades(new CurrencyPair("BTC-USDT"), 1663934808657L);
+        when(ftxRestConnectionExchange.getTrades(any(), anyLong(), anyLong()))
+                .thenReturn(TestUtil.fromJson(FILE_PATH_REST, "ftxTrades.json", FtxTradeRest.class));
+
+        List<Trade> trades = restPublicDataService.getTrades(currencyPair, 1663934808657L);
 
         assertTrue(trades != null && !trades.isEmpty());
-        assertTrue(trades.stream().allMatch(trade -> trade.getCurrencyPair().equals(new CurrencyPair("BTC-USDT"))));
+        assertTrue(trades.stream().allMatch(trade -> trade.getCurrencyPair().equals(currencyPair)));
     }
 }
