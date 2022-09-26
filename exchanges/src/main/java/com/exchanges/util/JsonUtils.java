@@ -2,6 +2,7 @@ package com.exchanges.util;
 
 import com.exchanges.exception.ExchangeRuntimeException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,16 @@ public class JsonUtils {
     public static <T> T fromJson(String str, Class<T> clazz) {
         try {
             return objectMapper.readValue(str, clazz);
+        } catch (IOException e) {
+            log.error("Bad JSON, message problem: {}", e.getMessage(), e);
+
+            throw new ExchangeRuntimeException("Bad JSON");
+        }
+    }
+
+    public static <T> T fromJson(String str, TypeReference<T> typeReference) {
+        try {
+            return objectMapper.readValue(str, typeReference);
         } catch (IOException e) {
             log.error("Bad JSON, message problem: {}", e.getMessage(), e);
 

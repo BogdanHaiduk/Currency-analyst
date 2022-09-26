@@ -34,7 +34,7 @@ public class HandlerOrderBookImpl implements HandlerOrderBook {
         return orderBook;
     }
 
-    private OrderBook cutOrderBook(OrderBook orderBook) {
+    public OrderBook cutOrderBook(OrderBook orderBook) {
         Map<BigDecimal, BigDecimal> asks = orderBook.getAsks().entrySet()
                 .stream().limit(DEPTH_ORDER_BOOK)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));

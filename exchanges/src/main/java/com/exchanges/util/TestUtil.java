@@ -1,5 +1,6 @@
 package com.exchanges.util;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AccessLevel;
@@ -25,6 +26,16 @@ public class TestUtil {
             String json = objectMapper.readTree(readFile(filePath, fileName)).toString();
 
             return JsonUtils.fromJson(json, tClass);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static <T> T fromJson(String filePath, String fileName, TypeReference<T> typeReference) {
+        try {
+            String json = objectMapper.readTree(readFile(filePath, fileName)).toString();
+
+            return JsonUtils.fromJson(json, typeReference);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

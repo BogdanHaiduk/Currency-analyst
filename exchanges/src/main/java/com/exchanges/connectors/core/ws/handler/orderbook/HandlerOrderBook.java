@@ -6,4 +6,6 @@ public interface HandlerOrderBook {
     OrderBook setSnapshotOrderBook(OrderBook orderBook);
 
     OrderBook update(OrderBook updateOrderBook);
+
+    OrderBook cutOrderBook(OrderBook orderBook);
 }
