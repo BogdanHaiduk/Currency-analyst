@@ -1,0 +1,50 @@
+[
+  {
+    "name": "BTCUSDT",
+    "alias": "BTCUSDT",
+    "baseCoin": "BTC",
+    "quoteCoin": "USDT",
+    "basePrecision": "0.000001",
+    "quotePrecision": "0.00000001",
+    "minTradeQty": "0.00004",
+    "minTradeAmt": "1",
+    "maxTradeQty": "46.13",
+    "maxTradeAmt": "938901",
+    "minPricePrecision": "0.01",
+    "category": "1",
+    "showStatus": "1",
+    "innovation": "0"
+  },
+  {
+    "name": "ETHUSDT",
+    "alias": "ETHUSDT",
+    "baseCoin": "ETH",
+    "quoteCoin": "USDT",
+    "basePrecision": "0.00001",
+    "quotePrecision": "0.0000001",
+    "minTradeQty": "0.0005",
+    "minTradeAmt": "1",
+    "maxTradeQty": "544.03",
+    "maxTradeAmt": "700891",
+    "minPricePrecision": "0.01",
+    "category": "1",
+    "showStatus": "1",
+    "innovation": "0"
+  },
+  {
+    "name": "XRPUSDT",
+    "alias": "XRPUSDT",
+    "baseCoin": "XRP",
+    "quoteCoin": "USDT",
+    "basePrecision": "0.01",
+    "quotePrecision": "0.000001",
+    "minTradeQty": "2.63",
+    "minTradeAmt": "1",
+    "maxTradeQty": "1309366.78",
+    "maxTradeAmt": "501300",
+    "minPricePrecision": "0.0001",
+    "category": "1",
+    "showStatus": "1",
+    "innovation": "0"
+  }
+]
