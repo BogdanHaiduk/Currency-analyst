@@ -4,7 +4,7 @@ import com.exchanges.dto.MessageEvent;
 import com.exchanges.dto.TypeEvent;
 import com.exchanges.connectors.core.Exchange;
 import com.exchanges.connectors.core.FactoryExchange;
-import com.exchanges.exception.FichaNotImplementException;
+import com.exchanges.exception.FeatureNotImplementException;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class CommandServiceImpl implements CommandService {
                 return;
 
             default:
-                throw new FichaNotImplementException(String.format(
+                throw new FeatureNotImplementException(String.format(
                         "Event with topic %s not implement",
                         messageEvent.getTopic())
                 );

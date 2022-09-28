@@ -1,9 +1,11 @@
 package com.exchanges.dto;
 
-import com.exchanges.exception.ExchangeRuntimeException;
+import com.exchanges.exception.BadClientRequestException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Data
@@ -37,6 +39,6 @@ public class CurrencyPair {
             this.baseCurrency = name.substring(0, name.indexOf("-"));
             this.quoteCurrency = name.substring(name.indexOf("-") + 1);
         } else
-            throw new ExchangeRuntimeException("Wrong currency pair format. Correct example: BTC-USDT");
+            throw new BadClientRequestException("Wrong currency pair format. Correct example: BTC-USDT");
     }
 }

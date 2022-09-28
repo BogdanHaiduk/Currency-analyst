@@ -1,9 +1,14 @@
 package com.exchanges.connectors.core.ws.service;
 
 import com.exchanges.dto.CurrencyPair;
+import com.exchanges.exception.FeatureNotImplementException;
 
 public interface WsPublicDataService {
-    void subscribeOrderBook(CurrencyPair currencyPair);
+    default void subscribeOrderBook(CurrencyPair currencyPair) {
+        throw new FeatureNotImplementException("Subscribing on order book not implemented.");
+    }
 
-    void unsubscribeOrderBook(CurrencyPair currencyPair);
+    default void unsubscribeOrderBook(CurrencyPair currencyPair) {
+        throw new FeatureNotImplementException("Unsubscribing on order book not implemented.");
+    }
 }
