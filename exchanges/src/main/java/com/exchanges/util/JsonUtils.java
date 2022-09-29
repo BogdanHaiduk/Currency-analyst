@@ -20,7 +20,7 @@ public class JsonUtils {
         } catch (JsonProcessingException e) {
             log.error("Not successful create JSON, message problem: {}", e.getMessage(), e);
 
-            throw new RuntimeException(e);
+            throw new ExchangeRuntimeException("Problems with creation JSON");
         }
     }
 

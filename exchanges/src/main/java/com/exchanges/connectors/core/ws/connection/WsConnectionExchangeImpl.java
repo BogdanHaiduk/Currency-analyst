@@ -9,7 +9,6 @@ import com.exchanges.exception.ExchangeRuntimeException;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketHttpHeaders;
 import org.springframework.web.socket.WebSocketSession;
@@ -80,7 +79,7 @@ public abstract class WsConnectionExchangeImpl implements WsConnectionExchange {
 
     @Override
     public void subscribe(EventConnector eventConnector) {
-        addSubscribe(eventConnector.getCurrencyPair(), eventConnector.getTopic());
+        addSubscription(eventConnector.getCurrencyPair(), eventConnector.getTopic());
 
         if (eventConnector.getJsonMessageForExchange() != null) {
             try {
@@ -97,8 +96,8 @@ public abstract class WsConnectionExchangeImpl implements WsConnectionExchange {
         }
     }
 
-    private void addSubscribe(CurrencyPair currencyPair, Topic topic) {
-        wsHandlerExchange.getSubscribes()
+    private void addSubscription(CurrencyPair currencyPair, Topic topic) {
+        wsHandlerExchange.getSubscriptions()
                 .add(
                         new Subscribe(currencyPair, topic)
                 );
@@ -106,7 +105,7 @@ public abstract class WsConnectionExchangeImpl implements WsConnectionExchange {
 
     @Override
     public void unsubscribe(EventConnector eventConnector) {
-        removeSubscribe(eventConnector.getCurrencyPair(), eventConnector.getTopic());
+        removeSubscription(eventConnector.getCurrencyPair(), eventConnector.getTopic());
 
         if (eventConnector.getJsonMessageForExchange() != null) {
             try {
@@ -123,8 +122,8 @@ public abstract class WsConnectionExchangeImpl implements WsConnectionExchange {
         }
     }
 
-    private void removeSubscribe(CurrencyPair currencyPair, Topic topic) {
-        wsHandlerExchange.getSubscribes().remove(
+    private void removeSubscription(CurrencyPair currencyPair, Topic topic) {
+        wsHandlerExchange.getSubscriptions().remove(
                 new Subscribe(currencyPair, topic)
         );
     }

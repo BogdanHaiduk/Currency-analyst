@@ -1,6 +1,6 @@
 package com.exchanges.connectors.core;
 
-import com.exchanges.exception.FichaNotImplementException;
+import com.exchanges.exception.FeatureNotImplementException;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class FactoryExchange {
         return exchanges.entrySet().stream()
                 .filter(exchangeEntry -> exchangeEntry.getKey().equals(exchangeNameCreate))
                 .findFirst()
-                .orElseThrow(() -> new FichaNotImplementException(String.format("%s API not implement.", exchangeNameCreate)))
+                .orElseThrow(() -> new FeatureNotImplementException(String.format("%s API not implement.", exchangeNameCreate)))
                 .getValue();
     }
 }

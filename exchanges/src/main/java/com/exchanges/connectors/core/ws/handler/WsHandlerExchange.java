@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -21,13 +20,12 @@ import java.util.Set;
 public abstract class WsHandlerExchange extends TextWebSocketHandler {
     final RabbitTemplate rabbitTemplate;
     final HandlerMessage handlerMessage;
-    final Set<Subscribe> subscribes = new HashSet<>();
+    final Set<Subscribe> subscriptions = new HashSet<>();
     WebSocketSession webSocketSessionConnector;
 
     @Value("${rabbit.queue.exchanges.response.to.analyst}")
     String exchangesResponseToAnalyst;
 
-    @Autowired
     public WsHandlerExchange(RabbitTemplate rabbitTemplate, HandlerMessage handlerMessage) {
         this.rabbitTemplate = rabbitTemplate;
         this.handlerMessage = handlerMessage;
@@ -35,8 +33,8 @@ public abstract class WsHandlerExchange extends TextWebSocketHandler {
 
     public abstract void afterConnectionClosed();
 
-    public final Set<Subscribe> getSubscribes() {
-        return subscribes;
+    public final Set<Subscribe> getSubscriptions() {
+        return subscriptions;
     }
 
     public final WebSocketSession getWebSocketSessionConnector() {
@@ -53,7 +51,7 @@ public abstract class WsHandlerExchange extends TextWebSocketHandler {
     @Override
     public final void afterConnectionClosed(WebSocketSession webSocketSessionConnectors, CloseStatus status) {
         afterConnectionClosed();
-        subscribes.clear();
+        subscriptions.clear();
     }
 
     @Override
